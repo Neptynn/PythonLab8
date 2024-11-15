@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Мій Django Застосунок</title>
+</head>
+<body>
+    <h1>Lab8</h1>
+    <p><i>Щербань Станіслав</i></p>
+    <p><i>КН-21002б</i></p>
+    <h2>Клієнти</h2>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Назва клієнта</th>
+            <th>Тип</th>
+            <th>Адреса</th>
+            <th>Телефон</th>
+            <th>Контактна особа</th>
+            <th>Номер рахунку</th>
+        </tr>
+        {% for client in clients %}
+        <tr>
+            <td>{{ client.id }}</td>
+            <td>{{ client.client_name }}</td>
+            <td>{{ client.entity_type }}</td>
+            <td>{{ client.address }}</td>
+            <td>{{ client.phone }}</td>
+            <td>{{ client.contact_person }}</td>
+            <td>{{ client.account_number }}</td>
+        </tr>
+        {% endfor %}
+
+    </table>
+    <h2>Продукти</h2>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Назва продукту</th>
+            <th>Ціна</th>
+            <th>Наявність</th>
+        </tr>
+
+        {% for product in products %}
+        <tr>
+            <td>{{ product.id }}</td>
+            <td>{{ product.product_name }}</td>
+            <td>{{ product.price }}</td>
+            <td>{{ product.stock }}</td>
+        </tr>
+        {% endfor %}
+
+    </table>
+    <h2>Продажі</h2>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Дата продажу</th>
+            <th>Клієнт</th>
+            <th>Продукт</th>
+            <th>Кількість</th>
+            <th>Знижка</th>
+            <th>Форма оплати</th>
+            <th>Потрібна доставка</th>
+            <th>Вартість доставки</th>
+        </tr>
+
+        {% for sale in sales %}
+        <tr>
+            <td>{{ sale.id }}</td>
+            <td>{{ sale.sale_date }}</td>
+            <td>{{ sale.client }}</td>
+            <td>{{ sale.product }}</td>
+            <td>{{ sale.quantity }}</td>
+            <td>{{ sale.discount }}</td>
+            <td>{{ sale.payment_form }}</td>
+            <td>{{ sale.delivery_needed }}</td>
+            <td>{{ sale.delivery_cost }}</td>
+        </tr>
+        {% endfor %}
+
+    </table>
+</body>
+</html>
